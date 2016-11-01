@@ -1,0 +1,7 @@
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer\ImageViewer\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer\ImageViewer\obj\x86\Debug\ImageViewer.MainForm.resources
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer\ImageViewer\obj\x86\Debug\ImageViewer.csproj.GenerateResource.Cache
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer\ImageViewer\bin\Debug\ImageViewer.exe
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer\ImageViewer\bin\Debug\ImageViewer.pdb
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer\ImageViewer\obj\x86\Debug\ImageViewer.exe
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer\ImageViewer\obj\x86\Debug\ImageViewer.pdb
