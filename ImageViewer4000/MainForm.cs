@@ -22,8 +22,8 @@ namespace ImageViewer
 	{
 		
 		string[] images;
-		
-		int _currentImageIndex = 0;
+		int currentImage = 0;
+		Keys pressedKey;
 		
 		//Enable unit testing
 		SimpletonUnitTestFramework.MainForm tester;
@@ -38,7 +38,6 @@ namespace ImageViewer
 			tester.Show();
 			
 			//Register the events ...
-			//this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.This_MainFormKeyDown);
 			this.pictureBox1.MouseEnter += new System.EventHandler(this.PictureBox1_MouseEnter);
 			this.pictureBox1.MouseWheel += new MouseEventHandler(PictureBox1_MouseWheel);
 			
@@ -53,134 +52,84 @@ namespace ImageViewer
 		    }
 		    images = filesFound.ToArray();
 		    
-		    tester.Assert("all images are shown", 3, images.Length);
-		    tester.Assert("index starts with 0", 0, _currentImageIndex);
-		    			
-			This_ShowImage(images, _currentImageIndex);
+		    tester.Assert("all images are loaded", 3, images.Length);
+		    
+			DisplayImage(images, currentImage);
 
 		}
-		
-//		 public static String[] Helper_GetFilesFrom(String searchFolder, String[] filters, bool isRecursive)
-//		 {
-//		 	Console.WriteLine("Getting Files ... ");
-//		    List<String> filesFound = new List<String>();
-//		    var searchOption = isRecursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
-//		    foreach (var filter in filters)
-//		    {
-//		       filesFound.AddRange(Directory.GetFiles(searchFolder, String.Format("*.{0}", filter), searchOption));
-//		    }
-//		    return filesFound.ToArray();
-//		 }
 
 		void PictureBox1_MouseWheel(object sender, MouseEventArgs e)
 		{
-			//PictureBox1_OnScrollUp
+			//When scrolling up on picturebox
 			if(e.Delta > 0) {
 				
 				//For testing purposes
-				var previousImageIndex = _currentImageIndex;
+				var previousImage = currentImage;
 				
 				//Try previous image
-				_currentImageIndex--;
+				currentImage--;
 				
 				//if scroll reverse past image start, go last image
-				if(_currentImageIndex < 0) { _currentImageIndex = images.Length -1; }	
-		
-				This_ShowImage(images, _currentImageIndex);
+				currentImage = Wrap(0, images.Length-1, currentImage);	
 				
-				//This_ShowNextImage(images, _currentImageIndex);
+				DisplayImage(images, currentImage);
 				
-				tester.Assert("picturebox scrolls to next image", _currentImageIndex +1, previousImageIndex);
+				tester.Assert("picturebox scrolls to next image", currentImage +1, previousImage);
 			}
 			
-			//PictureBox1_OnScrollDown
+			//When holding CTRL + scrolling up on picturebox
+			if ((pressedKey.Equals(Keys.ControlKey)) && (e.Delta > 0)) {
+				
+				//zoom in
+				
+				
+			}
+			
+			//When scrolling down on picturebox
 			if(e.Delta < 0) {
 				
 				//try next image
-				_currentImageIndex++;
+				currentImage++;
 
 				//if scroll forward past image end, go back to first image
-				if(_currentImageIndex > images.Length -1) { _currentImageIndex = 0; }
+				currentImage = Wrap(0,images.Length, currentImage);
 				
-				This_ShowImage(images, _currentImageIndex);
-				//This_ShowNextImage(images, _currentImageIndex);
+				DisplayImage(images, currentImage);
 			}
 		}
-		
-//		void PictureBox1_OnMouseWheelDown(object sender, MouseEventArgs e)
-//		{	
-//				_currentImageIndex--;
-//				This_ShowNextImage(images, _currentImageIndex);
-//		}
-//		
-//		void PictureBox1_OnMouseWheelUp(object sender, MouseEventArgs e)
-//		{
-//				_currentImageIndex++;
-//				This_ShowNextImage(images, _currentImageIndex);
-//		}
-		
-//		void This_ShowNextImage(string[] images, int index)
-//		{
-//				
-////				if(index > images.Length -1)
-////				{
-////					_currentImageIndex = 0;
-////				}
-////				
-////				if(index < 0)
-////				{
-////					_currentImageIndex = images.Length -1;
-////				}
-//				
-////				//if scroll forward past image end, go back to first image
-////				if(index > images.Length -1) { _currentImageIndex = 0; }
-////				
-////				//if scroll reversepast image start, go last image
-////				if(index < 0) {	_currentImageIndex = images.Length -1; }	
-////				
-//				//This_ShowImage(images, _currentImageIndex);
-//				
-//		}
 
-		public int WrapNext(int start, int end, int current)
+		//increment end to beginning and vice versa (super mario bros rules)
+		public int Wrap(int start, int end, int current)
 		{
-				if(current > end)
-				{
-					current = start;
-				}
-				
-				if(current < 0)
-				{
-					current = end;
-				}
+			if(current > end)		{ return start; }
+			else if(current < 0)	{ return end; } 
+			else 					{ return current; }
 		}
 		
-		void This_ShowImage(string[] images, int index)
+		//show an image in picturebox
+		void DisplayImage(string[] images, int imageIndex)
 		{
-		
 			//prevent stuff up when scrolling too fast
-			if(index <= images.Length -1 && index >= 0)
-			{
-				pictureBox1.ImageLocation = images[index];
+			if(imageIndex <= images.Length -1 && imageIndex >= 0) {
+				pictureBox1.ImageLocation = images[imageIndex];
 				this.Text = "ImageViewer4000 - ";
-				//Image count in titlebar
-				//this.Text += (_currentImageIndex + 1) + "/" + images.Length + " - ";
-				this.Text += Path.GetFileName(images[_currentImageIndex]);
+				this.Text += Path.GetFileName(images[imageIndex]);
 			}
 		}
-		
-//		void This_MainFormKeyDown(object sender, KeyEventArgs e)
-//		{
-//			if(e.KeyCode == Keys.Escape)
-//			{
-//				this.Close();
-//			}
-//		}
 		
 		//enable mousemove events
 		void PictureBox1_MouseEnter(object sender, EventArgs e)
 		{
 			pictureBox1.Focus();
 		}
+		
+		void MainFormKeyDown(object sender, KeyEventArgs e)
+		{
+			pressedKey = e.KeyCode;
+			
+			//tester.Assert("escape is pressed", Keys.Escape, e.KeyCode);
+		}
+		
+		 
 	}
 }

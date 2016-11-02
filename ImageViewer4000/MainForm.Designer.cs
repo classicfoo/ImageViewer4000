@@ -74,9 +74,10 @@ namespace ImageViewer
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(675, 431);
 			this.Controls.Add(this.pictureBox1);
+			this.KeyPreview = true;
 			this.Name = "MainForm";
 			this.Text = "ImageViewer4000";
-			//this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.This_MainFormKeyDown);
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainFormKeyDown);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.contextMenuStrip1.ResumeLayout(false);
 			this.ResumeLayout(false);

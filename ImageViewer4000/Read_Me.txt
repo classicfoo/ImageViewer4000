@@ -45,10 +45,8 @@ It was built using C#, winforms and Sharpdevelop 3.2 in 2016.
 * Show image number and total image number in title
 
 Next Commit
-* Removed escape key to exit is removed.
-* Refactored code to be more "procedural". Moved code from individual methods back into event handlers and constructor.
-* Fixed bug where last image did not show when scrolled.
-* Added tester project to add unit testing functionality
+
+* removed comments
 
 
 
