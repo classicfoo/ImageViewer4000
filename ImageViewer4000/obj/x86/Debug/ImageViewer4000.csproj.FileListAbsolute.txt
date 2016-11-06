@@ -7,3 +7,12 @@ C:\Users\michael_hyunh\Documents\SharpDevelop Projects\ImageViewer4000\ImageView
 C:\Users\michael_hyunh\Documents\SharpDevelop Projects\ImageViewer4000\ImageViewer4000\obj\x86\Debug\ImageViewer4000.pdb
 C:\Users\michael_hyunh\Documents\SharpDevelop Projects\ImageViewer4000\ImageViewer4000\bin\Debug\SimpletonUnitTestFramework.exe
 C:\Users\michael_hyunh\Documents\SharpDevelop Projects\ImageViewer4000\ImageViewer4000\bin\Debug\SimpletonUnitTestFramework.pdb
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer4000\ImageViewer4000\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer4000\ImageViewer4000\obj\x86\Debug\ImageViewer.MainForm.resources
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer4000\ImageViewer4000\obj\x86\Debug\ImageViewer4000.csproj.GenerateResource.Cache
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer4000\ImageViewer4000\obj\x86\Debug\ImageViewer4000.exe
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer4000\ImageViewer4000\obj\x86\Debug\ImageViewer4000.pdb
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer4000\ImageViewer4000\bin\Debug\ImageViewer4000.exe
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer4000\ImageViewer4000\bin\Debug\ImageViewer4000.pdb
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer4000\ImageViewer4000\bin\Debug\SimpletonUnitTestFramework.exe
+C:\Users\mike\Documents\SharpDevelop Projects\ImageViewer4000\ImageViewer4000\bin\Debug\SimpletonUnitTestFramework.pdb
